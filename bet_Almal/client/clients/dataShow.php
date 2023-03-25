@@ -1,6 +1,3 @@
-<?php require_once '../../function/db.php'?>
-<?php require_once '../../function/validate.php'?>
-<?php require_once 'add.php'?>
 
 
 <h1 style="color:yellow ;margin-left:150px;"><?php
@@ -24,7 +21,7 @@ $client_id =$_POST['client_id'];
         else{
             $error_message='اضف الرقم القومي';
         }
-        require_once '../../function/messages.php' ;
+        require_once '../function/messages.php' ;
 
 }
 

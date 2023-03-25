@@ -45,7 +45,7 @@ if ($result){
 
 return false ;
 }
-/*
+
 function getRows($table){
 
     global $conn ;
@@ -69,7 +69,7 @@ function getRows($table){
     }
 
 
-*/
+
     function show($table,$feild,$value){
         global $conn ;
         $sql = "SELECT * FROM `$table` WHERE `$feild`='$value'";

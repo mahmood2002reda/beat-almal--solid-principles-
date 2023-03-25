@@ -1,33 +1,3 @@
-
-<?php
-
-if (isset($_POST['submit']))
-{
-
-  $name =$_POST['name'];
-  $email =$_POST['email'];
-  $password =$_POST['password'];
-
-  if (checkEmpty($name) AND checkEmpty($email) AND checkEmpty($password)){
-    if(ValidEmail($email))
-    {
-      $hashedPassword= password_hash($password,PASSWORD_DEFAULT);
-      $sql = "INSERT INTO admins (`admin_name`,`admin_email`,`admin_password`) /* query Sentence  will be paramter in db_insert  */
-            VALUES ('$name','$email','$hashedPassword') ";
-                        $success_message = db_insert($sql);   // function in db.php
-    }
-
-    
-    else {
-      $error_message= "please correct email";
-    }
-  }
-  else{
-    $error_message= "please fill all filde";
-  }
-  require_once '../../function/messages.php' ;
-}
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,77 +14,23 @@ if (isset($_POST['submit']))
     <link rel="stylesheet" href=C:\wamp64\www\m25r\bet_Almal\assets\css\style.css >
 
     <title>Dashboard | Home Page</title>
+    <style>
+body {
+  
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+
+  
+}
+label{
+   color: yellow;
+  text-align: center;
+  
+}
+h3{
+
+  margin-top: 40px ;
+}
+</style>
   </head>
-  <body style= "background-image: url(<?php echo "../assets/images/bg-1.jpg" ;?>)" >
-
-
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href=""> <img src="http://localhost/m25r/bet_Almal/assets/images/logo.png" width="70" alt="LOGO"> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cities
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="  ">Add</a>
-                        <a class="dropdown-item" href="">View All</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Services
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="">Add</a>
-                        <a class="dropdown-item" href="">View All</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Orders
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="">View All</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admins
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="http://localhost/m25r/bet_Almal/client/clients/add.php">Add</a>
-                        <a class="dropdown-item" href="">View All</a>
-                    </div>
-                </li>
-
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="" target="_blank">View Site</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link"  href="?>"stule="border:1" >Logout</a>
-                </li>
-
-            </ul>
-
-            
-        </div>
-    </nav>
-
-
-    <div class="container-fluid mt-5 mb-5">
-        <div class="row"> 
-</body>
